@@ -11,13 +11,13 @@ const cookieParser = require('cookie-parser'); // Add this line
 // const cors = require('cors')    
 dotenv.config();
 
-// app.use(cors(
-//     {
-//         origin: ['https://deploy-mern-'],
-//         methods: ["POST","GET"],    
-//         credentials: true,
-//     }
-// ))
+app.use(cors(
+    {
+        origin: ['https://codsoft2-xws7-3i122judz-anikets-projects-165fe49e.vercel.app/'],
+        methods: ["POST","GET"],    
+        credentials: true,
+    }
+))
 const app = express();
 const PORT = 4000;
 

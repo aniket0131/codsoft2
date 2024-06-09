@@ -13,7 +13,7 @@ dotenv.config();
 
 app.use(cors(
     {
-        origin: ['https://codsoft2-xws7-3i122judz-anikets-projects-165fe49e.vercel.app/'],
+        origin: ['https://codsoft2-nclyrb1vf-anikets-projects-165fe49e.vercel.app/'],
         methods: ["POST","GET"],    
         credentials: true,
     }
@@ -22,7 +22,7 @@ const app = express();
 const PORT = 4000;
 
 const corsOptions = {
-    origin: 'https://codsoft2-xws7-3i122judz-anikets-projects-165fe49e.vercel.app/', // Allow requests from this origin
+    origin: 'https://codsoft2-nclyrb1vf-anikets-projects-165fe49e.vercel.app/', // Allow requests from this origin
     credentials: true, // Allow cookies and other credentials
   };
 // Init Middleware

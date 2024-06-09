@@ -8,16 +8,16 @@ const userRoutes = require("./Routes/AuthRoutes");
 const createjob = require("./Routes/jobRoutes");
 const CandidateRoutes = require("./Routes/CandidateRoutes");
 const cookieParser = require('cookie-parser'); // Add this line
-const cors = require('cors')    
+// const cors = require('cors')    
 dotenv.config();
 
-app.use(cors(
-    {
-        origin: ['https://deploy-mern-'],
-        methods: ["POST","GET"],    
-        credentials: true,
-    }
-))
+// app.use(cors(
+//     {
+//         origin: ['https://deploy-mern-'],
+//         methods: ["POST","GET"],    
+//         credentials: true,
+//     }
+// ))
 const app = express();
 const PORT = 4000;
 

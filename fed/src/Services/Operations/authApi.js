@@ -41,7 +41,7 @@ import { apiconnector } from "../apiconnector";
 import { setLoading, setToken } from "../../Slices/authSlice";
 import { setUser, setUserRole } from "../../Slices/profileSlice";
 
-const SIGNUP_API = "https://codsoft-amber.vercel.app/api/register";
+const SIGNUP_API = "https://codsoft2.vercel.app/api/register";
 console.log(SIGNUP_API, "API URL");
 
 export function signUp(name, email, password, role, navigate) {

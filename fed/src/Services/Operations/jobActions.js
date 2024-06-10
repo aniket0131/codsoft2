@@ -8,7 +8,7 @@ import { setJobsForUser } from '../../Slices/profileSlice';
 // Fetch filtered jobs
 export function fetchFilteredJobs(query) {
     return async (dispatch) => {
-        const FILTERED_JOBS_API = `http://localhost:4000/api/getalljob?title=${query}`;
+        const FILTERED_JOBS_API = `https://codsoft-amber.vercel.app/api/getalljob?title=${query}`;
         try {
             const response = await apiconnector("GET", FILTERED_JOBS_API, null);
 

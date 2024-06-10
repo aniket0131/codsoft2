@@ -4,7 +4,7 @@ import { setAppliedJob, setJobsForUser } from '../../Slices/profileSlice';
 // get all job by candidate
 export function getalljobByuser() {
     return async (dispatch) => {
-        const CANDIDATE_ALLJOB_GET_API = "http://localhost:4000/api/getalljob";
+        const CANDIDATE_ALLJOB_GET_API = "https://codsoft-amber.vercel.app/api/getalljob";
         try {
             const response = await apiconnector("GET", CANDIDATE_ALLJOB_GET_API, null);
 

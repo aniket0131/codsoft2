@@ -11,13 +11,13 @@ const cookieParser = require('cookie-parser'); // Add this line
 const cors = require('cors')    
 dotenv.config();
 
-// app.use(cors(
-//     {
-//         origin: ['https://codsoft2-nclyrb1vf-anikets-projects-165fe49e.vercel.app/'],
-//         methods: ["POST","GET"],    
-//         credentials: true,
-//     }
-// ))
+app.use(cors(
+    {
+        origin: ['https://codsoft2-nclyrb1vf-anikets-projects-165fe49e.vercel.app/'],
+        methods: ["POST","GET"],    
+        credentials: true,
+    }
+))
 const app = express();
 const PORT = 4000;
 

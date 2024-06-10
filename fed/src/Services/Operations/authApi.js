@@ -41,34 +41,36 @@ import { apiconnector } from "../apiconnector";
 import { setLoading, setToken } from "../../Slices/authSlice";
 import { setUser, setUserRole } from "../../Slices/profileSlice";
 
-const SIGNUP_API = 'https://codsoft2.vercel.app/api/register';
+const SIGNUP_API = "https://codsoft2.vercel.app/api/register";
+console.log(SIGNUP_API, "API URL");
 
 export function signUp(name, email, password, role, navigate) {
-  console.log(name, email, password, role, 'Signup Params');
+  console.log(name, email, password, role, "Signup Params");
   return async (dispatch) => {
-    const toastId = toast.loading('Loading...');
+    const toastId = toast.loading("Loading...");
+    // dispatch(setLoading(true));
     try {
-      const response = await apiconnector('POST', SIGNUP_API, {
+      const response = await apiconnector("POST", SIGNUP_API, {
         name,
         email,
         password,
         role,
       });
 
-      console.log('SIGNUP API RESPONSE:', response);
+      console.log("SIGNUP API RESPONSE:", response);
 
       if (!response.data.success) {
         throw new Error(response.data.message);
       }
-      toast.success('Signup Successful');
-      navigate('/login');
+      toast.success("Signup Successful");
+      navigate("/login");
     } catch (error) {
-      console.log('SIGNUP API ERROR:', error);
-      toast.error('Signup Failed: ' + error.message);
-      navigate('/signup');
-    } finally {
-      toast.dismiss(toastId);
+      console.log("SIGNUP API ERROR:", error);
+      toast.error("Signup Failed");
+      navigate("/signup");
     }
+    // dispatch(setLoading(false));
+    toast.dismiss(toastId);
   };
 }
 

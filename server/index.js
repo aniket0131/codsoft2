@@ -129,17 +129,16 @@ const database = require('./config/config');
 const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const { register } = require('./Controllers/authController');
-const userRoutes = require("./Routes/AuthRoutes");
-const createjob = require("./Routes/jobRoutes");
-const CandidateRoutes = require("./Routes/CandidateRoutes");
-const cookieParser = require('cookie-parser'); 
+const cookieParser = require('cookie-parser');
+const userRoutes = require('./Routes/AuthRoutes');
+const createjob = require('./Routes/jobRoutes');
+const CandidateRoutes = require('./Routes/CandidateRoutes');
 
 dotenv.config();
 
 const app = express(); // Initialize app here
 
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 const corsOptions = {
   origin: 'https://codsoft2-fed.vercel.app', // Allow requests from this origin
@@ -150,15 +149,6 @@ const corsOptions = {
 
 // Use CORS middleware
 app.use(cors(corsOptions));
-
-// Set CORS headers for all responses (optional, if using the corsOptions above this might be redundant)
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://codsoft2-fed.vercel.app');
-  res.header('Access-Control-Allow-Credentials', 'true');
-  res.header('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-  next();
-});
 
 // Handle preflight OPTIONS requests
 app.options('*', cors(corsOptions));
@@ -174,13 +164,13 @@ database.connect();
 // Routes
 app.use('/api', userRoutes);
 app.use('/api', createjob);
-app.use("/api", CandidateRoutes);
+app.use('/api', CandidateRoutes);
 
 // Basic route to test the server
-app.get("/", (req, res) => {
+app.get('/', (req, res) => {
   return res.json({
     success: true,
-    message: "Server is running....."
+    message: 'Server is running.....',
   });
 });
 

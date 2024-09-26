@@ -41,7 +41,7 @@ import { apiconnector } from "../apiconnector";
 import { setLoading, setToken } from "../../Slices/authSlice";
 import { setUser, setUserRole } from "../../Slices/profileSlice";
 
-const SIGNUP_API = "https://codsoft2.vercel.app/api/register";
+const SIGNUP_API = "https://jobportal-rha5.onrender.com/api/register";
 console.log(SIGNUP_API, "API URL");
 
 export function signUp(name, email, password, role, navigate) {
@@ -78,7 +78,7 @@ export function signUp(name, email, password, role, navigate) {
 //sign in
 export function signIn(email,password,navigate) {
   return async(dispatch) => {
-    const SIGNIN_API = "https://codsoft2.vercel.app/api/login";
+    const SIGNIN_API = "https://jobportal-rha5.onrender.com/api/login";
     try{                                                                   
       const response = await apiconnector("POST", SIGNIN_API, 
       {

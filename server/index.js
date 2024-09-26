@@ -76,23 +76,24 @@ const app = express();
 const PORT = 4000;
 
 const corsOptions = {
-  origin: 'https://codsoft2-fed.vercel.app', // Allow requests from this origin
+  origin: 'https://jobportal-rha5.onrender.com', // Allow requests from this origin
   credentials: true, // Allow cookies and other credentials
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
-  allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+  allowedHeaders: ['Content-Type', 'Authorization', 'application/json'
+    ] // Allowed headers
 };
 
 // Use CORS middleware
 app.use(cors(corsOptions));
 
 // Set CORS headers for all responses
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://codsoft2-fed.vercel.app');
-  res.header('Access-Control-Allow-Credentials', 'true');
-  res.header('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-  next();
-});
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', 'https://jobportal-rha5.onrender.com');
+//   res.header('Access-Control-Allow-Credentials', 'true');
+//   res.header('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE');
+//   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+//   next();
+// });
 
 // Handle preflight OPTIONS requests
 app.options('*', cors(corsOptions));
